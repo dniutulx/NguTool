@@ -5,10 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NguTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1000">
     <Grid>
-        <Button x:Name="loadSaveButton" Content="Load from save file" HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="130" Click="loadSaveButton_Click"/>
-        <Button x:Name="loadJsonButton" Content="Load from json file" HorizontalAlignment="Left" Height="28" Margin="145,10,0,0" VerticalAlignment="Top" Width="130" Click="loadJsonButton_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="707*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="LoadSaveButton" Content="Load from save file" HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="130" Click="LoadSaveButton_Click"/>
+        <Button x:Name="LoadJsonButton" Content="Load from json file" HorizontalAlignment="Left" Height="28" Margin="145,10,0,0" VerticalAlignment="Top" Width="130" Click="LoadJsonButton_Click"/>
+        <Button x:Name="SaveSaveButton" Content="Save to save file" HorizontalAlignment="Left" Height="28" Margin="725,10,0,0" VerticalAlignment="Top" Width="130" Click="SaveSaveButton_Click"/>
+        <Button x:Name="saveJsonButton" Content="Save to json file" HorizontalAlignment="Left" Height="28" Margin="860,10,0,0" VerticalAlignment="Top" Width="130" Click="SaveJsonButton_Click"/>
+        <CheckBox x:Name="SpoilersCheckbox" Content="Hide spoilers" HorizontalAlignment="Left" Height="14" Margin="305,17,0,0" VerticalAlignment="Top" Width="115" Checked="SpoilersCheckbox_Checked" IsChecked="True" />
+        <TextBox x:Name="PlayerDataTextbox" Margin="10,76,500,0" TextWrapping="Wrap" Height="698" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBox x:Name="StatusTextbox" Height="28" Margin="57,43,500,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Content="Status" HorizontalAlignment="Left" Height="28" Margin="10,43,0,0" VerticalAlignment="Top" Width="65"/>
+        <Label Content="Optimal Cooking" HorizontalAlignment="Left" Margin="532,76,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="CookingTextbox" HorizontalAlignment="Left" Height="130" Margin="532,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" IsReadOnly="True"/>
 
     </Grid>
 </Window>
