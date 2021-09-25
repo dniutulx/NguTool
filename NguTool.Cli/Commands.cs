@@ -226,7 +226,7 @@ namespace NguTool.Cli
                         int.Parse(parameters[6]), //ngu b evil
                         int.Parse(parameters[7]), //ngu a sad
                         int.Parse(parameters[8])  //ngu b sad
-                        );W
+                        );
                 }
 
 
