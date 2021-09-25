@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NguTool
+namespace NguTool.Classlib
 {
-    internal class Cooking
+    internal static class Cooking
     {
         const int maxIngredientLevel = 20;
 
@@ -24,7 +24,7 @@ namespace NguTool
             foreach (var pair in pairs)
             {
                 var res = OptimizeIngredientPair(ingredients[pair.ingredIndex1], ingredients[pair.ingredIndex2], pair.target);
-                Console.WriteLine($"Pair [{pair.ingredIndex1}, {pair.ingredIndex2}]: ing1 level {res.ingredientLevel1}, ing2 level {res.ingredientLevel2}, score {res.score}");
+                //Console.WriteLine($"Pair [{pair.ingredIndex1}, {pair.ingredIndex2}]: ing1 level {res.ingredientLevel1}, ing2 level {res.ingredientLevel2}, score {res.score}");
                 scores.Add(pair.ingredIndex1,
                     new IngredientScored
                     {

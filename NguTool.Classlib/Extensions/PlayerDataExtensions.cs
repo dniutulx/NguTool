@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NguTool.Extensions
+namespace NguTool.Classlib.Extensions
 {
     public static class PlayerDataExtensions
     {
@@ -16,10 +16,10 @@ namespace NguTool.Extensions
                                           5, 10, 15, 20, 25, 25, 30, 30, 35, 35, 35, 40, 40, 40, 45, 45, 45, 45, 50, 50, 50, 50, 55, 55, 55, 55, 60, 60, 60, 60, //bosses
                                           30, 30, 100, 100, 100, 100, 100, 100, 100, //misc 1
                                           5, 10, 15, 20, 25, 30, 40, 50, 60, //rebirths
-                                          100, 100, 20, 25, 25, 25, 25, 25 //misc 2
+                                          60, 100, 100, 20, 25, 25, 25, 25, 25 //misc 2
                                         };
 
-        public static int addAP(this PlayerData character, int amount)
+        internal static int addAP(this PlayerData character, int amount)
         {
             float baseAmount = amount * character.getBonusAPMultiplier();
 
@@ -30,10 +30,10 @@ namespace NguTool.Extensions
             return result;
         }
 
-        public static float getBonusAPMultiplier(this PlayerData character)
+        internal static float getBonusAPMultiplier(this PlayerData character)
         {
             float mult = 1f;
-
+            int achieveMult = 0;
             if (character.inventory.itemList.itemMaxxed[129]) mult *= 1.2f; //maxed yellow heart bonus
 
             if (character.adventure.itopod.perkLevel[94] >= 89) mult *= 1.02f; //fibonacci perk 89
@@ -43,9 +43,9 @@ namespace NguTool.Extensions
 
             for (int index = 0; index < bonuses.Count; index++)
             {
-                float bonus = bonuses[index] * BpValues[index];
-                mult += bonus / 10000f;
+                achieveMult += bonuses[index] * BpValues[index];
             }
+            mult *= 1+ (float)achieveMult / 10000f;
             return mult;
         }
     }
