@@ -63,6 +63,10 @@ namespace NguTool.Cli
                     break;
 
                 case "lrb":
+                    if (commandParameters[0] == "hours")
+                    {
+                        result = LrbForHours(commandParameters);
+                    }
                     break;
 
                     #endregion
@@ -197,7 +201,7 @@ namespace NguTool.Cli
             //lrb hours [options] [currentPower] [duration in hours]
 
             //this whole thing is bad
-
+            //should loop through the 
 
             try
             {
@@ -229,11 +233,12 @@ namespace NguTool.Cli
                         );
                 }
 
+                var endpower = Character.LRBByTicks(long.Parse(parameters[parameters.Length - 2]), ticks, ticksPerLevel);
 
                 return new CommandResult()
                 {
-                    Success = true
-                    //Message = Character.LRBByTicks();
+                    Success = true,
+                    Message = $"Final power after {long.Parse(parameters.Last())}: {endpower}"
                 };
             }
             catch (Exception ex)

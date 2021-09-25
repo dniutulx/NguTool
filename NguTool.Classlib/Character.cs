@@ -78,18 +78,46 @@ namespace NguTool.Classlib
             double optimismFactor = 1
             )
         {
-
+            var power = RebirthCalculator.GetRebirthEndPower(
+                chardata,
+                currentPower,
+                elapsedTicks,
+                ATPowerTicks,
+                BEARdTicks,
+                nguAdvANormalTicks,
+                nguAdvBNormalTicks,
+                nguAdvAEvilTicks,
+                nguAdvBEvilTicks,
+                nguAdvASadisticTicks,
+                nguAdvBSadisticTicks,
+                optimismFactor
+                );
             return "1";
         }
         public static string LRBByTicks(
            long currentPower,
-           int elapsedTicks,
+           long elapsedTicks,
            List<int> ticks,
            double optimismFactor = 1
            )
         {
 
-            return "1";
+            var power = RebirthCalculator.GetRebirthEndPower(
+                chardata,
+                currentPower,
+                elapsedTicks,
+                ticks[0],
+                ticks[1],
+                ticks[2],
+                ticks[3],
+                ticks[4],
+                ticks[5],
+                ticks[6],
+                ticks[7],
+                optimismFactor
+                );
+
+            return string.Format("{0:#.##E+0}", power);
         }
         #endregion
     }

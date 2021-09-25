@@ -71,7 +71,7 @@ namespace NguTool
         internal static long GetRebirthEndPower(
             PlayerData character,
             long currentPower,
-            int elapsedTicks,
+            long elapsedTicks,
             int ATPowerTicks,
             int BEARdTicks,
             int nguAdvANormalTicks,
