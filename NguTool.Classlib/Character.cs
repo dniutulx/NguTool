@@ -15,6 +15,7 @@ namespace NguTool.Classlib
             chardata = new PlayerData();
         }
 
+        #region file load and save
         public static void LoadFromFile(string filepath, string format = "game")
         {
             if(format == "json")
@@ -38,12 +39,16 @@ namespace NguTool.Classlib
                 LoadSaveHelper.SavePlayerData(chardata, filepath);
             }
         }
+        #endregion
 
+        #region sellout shop
         public static void BuyAp(int howMany)
         {
             chardata.addAP(howMany);
         }
+        #endregion
 
+        #region analysis
         public static string Cook()
         {
             var recipe = Cooking.OptimizeRecipe(chardata);
@@ -58,5 +63,34 @@ namespace NguTool.Classlib
 
             return output;
         }
+
+        public static string LRBByTicks(
+            long currentPower,
+            long elapsedTicks,
+            int ATPowerTicks,
+            int BEARdTicks,
+            int nguAdvANormalTicks,
+            int nguAdvBNormalTicks,
+            int nguAdvAEvilTicks,
+            int nguAdvBEvilTicks,
+            int nguAdvASadisticTicks,
+            int nguAdvBSadisticTicks,
+            double optimismFactor = 1
+            )
+        {
+
+            return "1";
+        }
+        public static string LRBByTicks(
+           long currentPower,
+           int elapsedTicks,
+           List<int> ticks,
+           double optimismFactor = 1
+           )
+        {
+
+            return "1";
+        }
+        #endregion
     }
 }

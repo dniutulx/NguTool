@@ -25,8 +25,8 @@ namespace NguTool
         /// <param name="optimismFactor">Multiplier to account for other features or misplaced optimism. 0 = no progress</param>
         /// <returns>Number of ticks needed to reach target</returns>
         internal static long RebirthToTarget(
-            PlayerData character, 
-            long currentPower, 
+            PlayerData character,
+            long currentPower,
             long targetPower,
             int ATPowerTicks,
             int BEARdTicks,
@@ -80,24 +80,41 @@ namespace NguTool
             int nguAdvBEvilTicks,
             int nguAdvASadisticTicks,
             int nguAdvBSadisticTicks,
-            float optimismFactor = 1
+            double optimismFactor = 1
             )
         {
 
-            float bonus = 1;
+            double bonus = 1;
 
-            int ATPowerLevelsGained = ATPowerTicks > 0 ? elapsedTicks / ATPowerTicks : 0;
-            int BEARdLevelsGained = BEARdTicks > 0 ? elapsedTicks / BEARdTicks : 0;
-            int nguAdvANormalLevelsGained = nguAdvANormalTicks > 0 ? elapsedTicks / nguAdvANormalTicks : 0;
-            int nguAdvBNormalLevelsGained = nguAdvBNormalTicks > 0 ? elapsedTicks / nguAdvBNormalTicks : 0;
-            int nguAdvAEvilLevelsGained = nguAdvAEvilTicks > 0 ? elapsedTicks / nguAdvAEvilTicks : 0;
-            int nguAdvBEvilLevelsGaineds = nguAdvBEvilTicks > 0 ? elapsedTicks / nguAdvBEvilTicks : 0;
-            int nguAdvASadisticLevelsGaineds = nguAdvASadisticTicks > 0 ? elapsedTicks / nguAdvASadisticTicks : 0;
-            int nguAdvBSadisticLevelsGained = nguAdvBSadisticTicks > 0 ? elapsedTicks / nguAdvBSadisticTicks : 0;
+            long ATPowerLevelsGained = ATPowerTicks > 0 ? elapsedTicks / ATPowerTicks : 0;
+            long BEARdLevelsGained = BEARdTicks > 0 ? elapsedTicks / BEARdTicks : 0;
+            long nguAdvANormalLevelsGained = nguAdvANormalTicks > 0 ? elapsedTicks / nguAdvANormalTicks : 0;
+            long nguAdvBNormalLevelsGained = nguAdvBNormalTicks > 0 ? elapsedTicks / nguAdvBNormalTicks : 0;
+            long nguAdvAEvilLevelsGained = nguAdvAEvilTicks > 0 ? elapsedTicks / nguAdvAEvilTicks : 0;
+            long nguAdvBEvilLevelsGaineds = nguAdvBEvilTicks > 0 ? elapsedTicks / nguAdvBEvilTicks : 0;
+            long nguAdvASadisticLevelsGaineds = nguAdvASadisticTicks > 0 ? elapsedTicks / nguAdvASadisticTicks : 0;
+            long nguAdvBSadisticLevelsGained = nguAdvBSadisticTicks > 0 ? elapsedTicks / nguAdvBSadisticTicks : 0;
 
-            //float ATBonus = 
+            double ATBonus = getBonusDifference(character.advancedTraining.level[0], ATPowerLevelsGained, .4, 10);
+            double BEARdBonus = getBonusDifference(character.beards.beards[5].beardLevel, BEARdLevelsGained, .3, .1259);
+            double nguAdvANormalBonus = getBonusDifference(character.NGU.skills[5].level, nguAdvANormalLevelsGained, .5, .0317);
+            double nguAdvBNormalBonus = getBonusDifference(character.NGU.magicSkills[6].level, nguAdvBNormalLevelsGained, .4, .01894);
+            double nguAdvAEvilBonus = getBonusDifference(character.NGU.skills[5].evilLevel, nguAdvAEvilLevelsGained, .25, .088945);
+            double nguAdvBEvilBonus = getBonusDifference(character.NGU.magicSkills[6].evilLevel, nguAdvBEvilLevelsGaineds, .25, .026675);
+            double nguAdvASadisticBonus = getBonusDifference(character.NGU.skills[5].sadisticLevel, nguAdvASadisticLevelsGaineds, .2, .100476);
+            double nguAdvBSadisticBonus = getBonusDifference(character.NGU.magicSkills[6].sadisticLevel, nguAdvBSadisticLevelsGained, .12, .0654795);
+
+            bonus *= ATBonus * BEARdBonus * nguAdvANormalBonus * nguAdvBNormalBonus * nguAdvAEvilBonus * nguAdvBEvilBonus * nguAdvASadisticBonus * nguAdvBSadisticBonus * optimismFactor;
 
             return (long)(currentPower * bonus);
+        }
+
+        private static double getBonusDifference(long current, long increase, double exponent, double coefficient)
+        {
+            long newLevel = current + increase;
+            double currentBonus = 1 + (Math.Pow(current, exponent) * coefficient);
+            double newBonus = 1 + (Math.Pow(newLevel, exponent) * coefficient);
+            return newBonus / currentBonus;
         }
     }
 }

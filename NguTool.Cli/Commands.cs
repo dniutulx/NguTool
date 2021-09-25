@@ -191,6 +191,81 @@ namespace NguTool.Cli
                 };
             }
         }
+
+        private static CommandResult LrbForHours(params string[]? parameters) //fka chicken-4-dayz
+        {
+            //lrb hours [options] [currentPower] [duration in hours]
+
+            //this whole thing is bad
+
+
+            try
+            {
+                var ticks = long.Parse(parameters.Last()) * 3600 * 50;
+                string result;
+
+                var ticksPerLevel = new List<int>();
+
+                if (parameters.Contains<string>("allbb"))
+                {
+                    for (var i = 0; i< 8; i++)
+                    {
+                        ticksPerLevel.Add(1);
+                    }
+                }
+                else
+                {
+                    result = Character.LRBByTicks(
+                        1,
+                        ticks,
+                        int.Parse(parameters[1]), //AT
+                        int.Parse(parameters[2]), //BEARd
+                        int.Parse(parameters[3]), //ngu a normal
+                        int.Parse(parameters[4]), //ngu b normal
+                        int.Parse(parameters[5]), //ngu a evil
+                        int.Parse(parameters[6]), //ngu b evil
+                        int.Parse(parameters[7]), //ngu a sad
+                        int.Parse(parameters[8])  //ngu b sad
+                        );W
+                }
+
+
+                return new CommandResult()
+                {
+                    Success = true
+                    //Message = Character.LRBByTicks();
+                };
+            }
+            catch (Exception ex)
+            {
+                return new CommandResult()
+                {
+                    Success = false,
+                    Message = $"LRB failed. Message: {ex.Message}"
+                };
+            }
+        }
+        private static CommandResult LrbToGoal(params string[]? parameters) //fka chicken-4-dayz
+        {
+            //lrb goal [options] [end power]
+            
+            try
+            {
+                return new CommandResult()
+                {
+                    Success = false,
+                    Message = "Not implemented"
+                };
+            }
+            catch (Exception ex)
+            {
+                return new CommandResult()
+                {
+                    Success = false,
+                    Message = $"LRB failed. Message: {ex.Message}"
+                };
+            }
+        }
     }
 
     public class CommandResult
