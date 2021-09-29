@@ -1,5 +1,5 @@
 ﻿
-using NguTool.Classlib.Extensions;
+using NguTool.Extensions;
 
 namespace NguTool
 {

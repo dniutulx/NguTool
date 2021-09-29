@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NguTool.Classlib.Extensions
+namespace NguTool.Extensions
 {
     public static class PlayerDataExtensions
     {

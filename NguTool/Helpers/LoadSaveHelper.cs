@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 
-namespace NguTool.Classlib.Helpers
+namespace NguTool.Helpers
 {
     public static class LoadSaveHelper
     {

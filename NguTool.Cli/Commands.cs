@@ -1,4 +1,4 @@
-﻿using NguTool.Classlib;
+﻿using NguTool;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -201,7 +201,7 @@ namespace NguTool.Cli
             //lrb hours [options] [currentPower] [duration in hours]
 
             //this whole thing is bad
-            //should loop through the 
+            //should iterate through the params and figure out what they're trying to doand i
 
             try
             {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NguTool.Classlib
+namespace NguTool
 {
     internal static class Cooking
     {

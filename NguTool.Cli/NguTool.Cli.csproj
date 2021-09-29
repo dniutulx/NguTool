@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NguTool.Classlib\NguTool.Classlib.csproj" />
+    <ProjectReference Include="..\NguTool\NguTool.csproj" />
   </ItemGroup>
 
 </Project>

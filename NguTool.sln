@@ -8,7 +8,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NguTool.Cli", "NguTool.Cli\
 		{CEE7439D-727E-47CC-86EA-CB15CE260B38} = {CEE7439D-727E-47CC-86EA-CB15CE260B38}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NguTool.Classlib", "NguTool.Classlib\NguTool.Classlib.csproj", "{CEE7439D-727E-47CC-86EA-CB15CE260B38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NguTool", "NguTool\NguTool.csproj", "{CEE7439D-727E-47CC-86EA-CB15CE260B38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using NguTool.Classlib.Extensions;
-using NguTool.Classlib.Helpers;
+using NguTool.Extensions;
+using NguTool.Helpers;
 
-namespace NguTool.Classlib
+namespace NguTool
 {
     public static class Character
     {

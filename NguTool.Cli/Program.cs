@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using NguTool.Classlib;
+using NguTool;
 
 namespace NguTool.Cli
 {
